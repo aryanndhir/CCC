@@ -49,9 +49,9 @@ $sql4="SELECT * FROM persons WHERE username='$username'";
 $result2 = $conn->query($sql4);
 
 if ($result->num_rows> 0) {
-    echo "Registration already exists for the given Email address.<br>";
+    echo "Registration already exists for the given Email address.<br><button onclick="history.go(-1);">Back</button>";
 } else if ($result2->num_rows> 0){
-    echo "Registration already exists for the given username.<br>";
+    echo "Registration already exists for the given username.<br><button onclick="history.go(-1);">Back</button>";
 } else {
     $sql2="INSERT INTO persons SET username = '$username', password = '$password', ccname='$ccname', cfname='$cfname', email='$email'";
     
