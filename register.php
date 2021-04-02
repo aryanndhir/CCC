@@ -28,7 +28,7 @@ function CloseCon($conn)
 }
 
 $sql = "CREATE TABLE IF NOT EXISTS persons(
-    username VARCHAR(30) NOT NULL,
+    username VARCHAR(30) NOT NULL PRIMARY KEY,
     password VARCHAR(30) NOT NULL,
     ccname VARCHAR(30) NOT NULL,
     cfname VARCHAR(30) NOT NULL,
@@ -45,9 +45,14 @@ if($conn->query($sql) === true){
 $sql3="SELECT * FROM persons WHERE email='$email'";
 $result = $conn->query($sql3);
 
+$sql4="SELECT * FROM persons WHERE username='$username'";
+$result2 = $conn->query($sql4);
+
 if ($result->num_rows> 0) {
     echo "Registration already exists for the given Email address.<br>";
-} else{
+} else if ($result2->num_rows> 0){
+    echo "Registration already exists for the given username.<br>";
+} else {
     $sql2="INSERT INTO persons SET username = '$username', password = '$password', ccname='$ccname', cfname='$cfname', email='$email'";
     
     if($conn->query($sql2) === true){
