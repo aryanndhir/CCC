@@ -11,17 +11,20 @@ if(isset($_POST["update"]))
 
     function OpenCon()
     {
-        $dbhost = "sql6.freesqldatabase.com";
-        $dbuser = "sql6400897";
-        $dbpass = "gcysFbCvd9";
-        $db = "sql6400897";
-        $conn = new mysqli($dbhost, $dbuser, $dbpass,$db);
+        // $dbhost = "sql6.freesqldatabase.com";
+        // $dbuser = "sql6400897";
+        // $dbpass = "gcysFbCvd9";
+        // $db = "sql6400897";
+        // $conn = new mysqli($dbhost, $dbuser, $dbpass,$db);
+        // return $conn;
+        $conn = pg_connect(string $_ENV['DATABASE_URL']);
         return $conn;
     }
 
     function CloseCon($conn)
     {
-        $conn -> close();
+        pg_close($conn);
+        // $conn -> close();
     } 
 
     $conn = OpenCon();
@@ -32,7 +35,7 @@ if(isset($_POST["update"]))
     
     $sql = "UPDATE persons SET email='$email', ccname='$ccname', cfname='$cfname', achievements='$ach', password='$pwd' WHERE username='$name'";
     error_log($sql);
-    if($conn->query($sql) === true){
+    if($conn->pg_query($sql) === true){
 //         echo $ccname;
 //         echo $cfname;
 //         echo $pwd;

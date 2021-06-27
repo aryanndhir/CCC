@@ -9,7 +9,8 @@ function OpenCon()
  
 function CloseCon($conn)
 {
-    $conn -> close();
+    pg_close($conn);
+    // $conn -> close();
 } 
 
 $conn = OpenCon();
@@ -19,7 +20,7 @@ if($conn === false){
 }
 
 $sql = "SELECT * FROM persons WHERE username='$user'";
-$result1 = $conn -> query($sql);
+$result1 = $conn -> pg_query($sql);
 $result = $result1->fetch_assoc();
 if($result){
   

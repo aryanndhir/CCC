@@ -8,7 +8,8 @@ function OpenCon()
  
 function CloseCon($conn)
 {
-    $conn -> close();
+    pg_close($conn);
+    // $conn -> close();
 } 
  
 $conn = OpenCon();

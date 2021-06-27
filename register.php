@@ -16,7 +16,8 @@ function OpenCon()
  
 function CloseCon($conn)
  {
-    $conn -> pg_close();
+    pg_close($conn);
+    // $conn -> pg_close();
  }
  $conn = OpenCon();
  if($conn === false){

@@ -7,7 +7,8 @@ function OpenCon()
  
 function CloseCon($conn)
 {
-    $conn -> close();
+    pg_close($conn);
+    // $conn -> close();
 } 
  
 $conn = OpenCon();
@@ -16,7 +17,7 @@ if($conn === false){
   echo "<br>";
 }
 $sql1 = "SELECT * FROM persons";  
-$result = $conn->query($sql1);
+$result = $conn->pg_query($sql1);
 echo '<h2 style="text-align: center; color: white;">Achievements</h1>';
 echo '<style>
 .score {
