@@ -50,7 +50,7 @@ if ($result->num_rows> 0) {
 } else if ($result2->num_rows> 0){
     echo "Registration already exists for the given username.<br><button onclick='history.go(-1);'>Back</button>";
 } else {
-    $sql2="INSERT INTO persons SET username = '$username', password = '$password', ccname='$ccname', cfname='$cfname', email='$email'";
+    $sql2="INSERT INTO persons (username, password, ccname, cfname, email) VALUES ('$username', '$password', '$ccname', '$cfname', '$email')";
     
     if($conn->pg_query($sql2) === true){
         header('Location: register.html');
