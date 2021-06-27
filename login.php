@@ -24,7 +24,7 @@ function OpenCon()
 $sql= "SELECT * FROM persons WHERE username='$username' AND password='$password'";
 $result = pg_query($conn, $sql);
 
-if($result->pg_num_rows>0){
+if(pg_num_rows($result)>0){
 	$cookie_name = "username"; 
 	$cookie_value = $username;
 	setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
