@@ -17,7 +17,7 @@ if(isset($_POST["update"]))
         // $db = "sql6400897";
         // $conn = new mysqli($dbhost, $dbuser, $dbpass,$db);
         // return $conn;
-        $conn = pg_connect(string $_ENV['DATABASE_URL']);
+        $conn = pg_connect($_ENV['DATABASE_URL']);
         return $conn;
     }
 
@@ -35,7 +35,7 @@ if(isset($_POST["update"]))
     
     $sql = "UPDATE persons SET email='$email', ccname='$ccname', cfname='$cfname', achievements='$ach', password='$pwd' WHERE username='$name'";
     error_log($sql);
-    if($conn->pg_query($sql) === true){
+    if(pg_query($conn, $sql) === true){
 //         echo $ccname;
 //         echo $cfname;
 //         echo $pwd;
