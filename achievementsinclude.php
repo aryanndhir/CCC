@@ -32,7 +32,7 @@ echo '<th style="text-align: center">Achievements</th>';
 echo '</tr>';
 echo '<div style="border: 1px solid rgba(255,255,255,0.3);">';
 if ($result) {
-  while($row = $result->fetch_assoc()) {
+  while($row = pg_fetch_assoc($result)) {
     echo '<tr style= "border: 1px solid rgba(255,255,255,0.3); height: 2rem;">';
     echo '<td style = "font-weight: 500; width: 10px; padding-left:2px;">';
     echo $row["username"]."</td>";
