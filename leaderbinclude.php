@@ -50,7 +50,7 @@ echo '</tr>';
 echo '<div style="border: 1px solid rgba(255,255,255,0.3);">';
 if ($result) {
   $ctr = 1;
-  while($row = $result->fetch_assoc()) {
+  while($row = fetch_assoc($result)) {
     echo '<tr style= "border: 1px solid rgba(255,255,255,0.3); height: 2rem;">';
     echo '<td style = "text-align:center, font-weight: 500; width: 10px; padding-left:50px;">';
     echo "$ctr</td>";
