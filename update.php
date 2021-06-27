@@ -29,7 +29,7 @@ if(isset($_POST["update"]))
 
     $conn = OpenCon();
     if($conn === false){
-        die("ERROR: Could not connect." . $conn->connect_error);
+        die("ERROR: Could not connect." . pg_last_error($conn));
         echo "<br>";
     }
     
