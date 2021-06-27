@@ -33,11 +33,7 @@ $sql = "CREATE TABLE IF NOT EXISTS persons(
     achievements VARCHAR(100)
 )";
 
-if(pg_query($conn, $sql) === true){
-    //echo "Table created successfully.<br>";
-} else{
-    echo "ERROR: Could not able to execute $sql.<br>" . $conn->pg_last_error;
-}
+pg_query($conn, $sql);
 
 $sql3 = "SELECT * FROM persons WHERE email='$email'";
 $result = pg_query($conn, $sql3);
