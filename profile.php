@@ -2,15 +2,11 @@
 $user = $_COOKIE['username'];
 
 function OpenCon()
-{
-	$dbhost = "sql6.freesqldatabase.com";
-	$dbuser = "sql6400897";
-	$dbpass = "gcysFbCvd9";
-	$db = "sql6400897";
-	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db);
- 	return $conn;
-}
-
+ {
+  $conn = pg_connect(string $_ENV['DATABASE_URL']);
+  return $conn;
+ }
+ 
 function CloseCon($conn)
 {
     $conn -> close();
