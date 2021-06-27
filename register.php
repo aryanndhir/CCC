@@ -33,17 +33,17 @@ $sql = "CREATE TABLE IF NOT EXISTS persons(
     achievements VARCHAR(100)
 )";
 
-if($conn->pg_query($sql) === true){
+if(pg_query($conn, $sql) === true){
     //echo "Table created successfully.<br>";
 } else{
     echo "ERROR: Could not able to execute $sql.<br>" . $conn->pg_last_error;
 }
 
 $sql3 = "SELECT * FROM persons WHERE email='$email'";
-$result = $conn->pg_query($sql3);
+$result = pg_query($conn, $sql3);
 
 $sql4 = "SELECT * FROM persons WHERE username='$username'";
-$result2 = $conn->pg_query($sql4);
+$result2 = pg_query($conn, $sql4);
 
 if ($result->num_rows> 0) {
     echo "Registration already exists for the given Email address.<br><button onclick='history.go(-1);'>Back</button>";
@@ -52,7 +52,7 @@ if ($result->num_rows> 0) {
 } else {
     $sql2="INSERT INTO persons (username, password, ccname, cfname, email) VALUES ('$username', '$password', '$ccname', '$cfname', '$email')";
     
-    if($conn->pg_query($sql2) === true){
+    if(pg_query($conn, $sql2) === true){
         header('Location: register.html');
         exit;
     }
