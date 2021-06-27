@@ -22,7 +22,7 @@ function OpenCon()
 }
 
 $sql= "SELECT * FROM persons WHERE username='$username' AND password='$password'";
-$result = $conn->pg_query($sql);
+$result = pg_query($conn, $sql);
 
 if($result->num_rows>0){
 	$cookie_name = "username"; 
