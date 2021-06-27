@@ -20,7 +20,7 @@ if($conn === false){
 }
 
 $sql = "SELECT * FROM persons WHERE username='$user'";
-$result1 = $conn -> pg_query($sql);
+$result1 = pg_query($conn, $sql);
 $result = $result1->fetch_assoc();
 if($result){
   
