@@ -3,7 +3,7 @@ $user = $_COOKIE['username'];
 
 function OpenCon()
  {
-  $conn = pg_connect(string $_ENV['DATABASE_URL']);
+  $conn = pg_connect($_ENV['DATABASE_URL']);
   return $conn;
  }
  
@@ -21,7 +21,7 @@ if($conn === false){
 
 $sql = "SELECT * FROM persons WHERE username='$user'";
 $result1 = pg_query($conn, $sql);
-$result = $result1->fetch_assoc();
+$result = pg_fetch_assoc($conn, $result1);
 if($result){
   
   $email = $result['email'];
