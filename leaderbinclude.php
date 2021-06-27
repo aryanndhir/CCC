@@ -30,7 +30,7 @@ function getRating($platform, $user){
 	
 }
 $sql1 = "SELECT * FROM persons";  
-$result = $conn->query($sql1);
+$result = $conn->pg_query($sql1);
 echo '<h2 style="text-align: center; color: white;">Leaderboard</h1>';
 echo '<style>
 .score {
