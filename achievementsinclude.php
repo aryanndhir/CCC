@@ -1,7 +1,7 @@
 <?php
 function OpenCon()
  {
-	$conn = pg_connect(string $_ENV['DATABASE_URL']);
+	$conn = pg_connect($_ENV['DATABASE_URL']);
  	return $conn;
  }
  
