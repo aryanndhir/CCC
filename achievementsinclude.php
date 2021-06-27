@@ -17,7 +17,7 @@ if($conn === false){
   echo "<br>";
 }
 $sql1 = "SELECT * FROM persons";  
-$result = $conn->pg_query($sql1);
+$result = pg_query($conn, $sql1);
 echo '<h2 style="text-align: center; color: white;">Achievements</h1>';
 echo '<style>
 .score {
